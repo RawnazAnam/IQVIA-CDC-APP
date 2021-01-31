@@ -34,6 +34,8 @@
   <li class="list-group-item">1. Data of all states are not avaialble from the API</li>
   <li class="list-group-item">2. Percentage Calculated is from available data from provided states</li>
   <li class="list-group-item">3. Data of some US Minor Islands are also present</li>
+  <li class="list-group-item">4. Data may be inacurate as submission date of provided states varies and not up to date</li>
+
   
 </ul>
                 </div>
