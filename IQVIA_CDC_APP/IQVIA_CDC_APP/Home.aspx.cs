@@ -51,6 +51,10 @@ namespace IQVIA_CDC_APP
                     cdcData.Rows[i].Cells[3].Text = percentage + " %";
                 }
 
+                dtToHtml test1 = new dtToHtml();
+                string t = test1.ConvertDataTableToHTML(dt);
+                divDisplay.InnerHtml = t;
+
             }
 
         }
