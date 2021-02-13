@@ -32,7 +32,7 @@ namespace IQVIA_CDC_APP
                 
                     html += "<td>" + dt.Rows[i][1].ToString() + "</td>";
                 html += "<td>" + dt.Rows[i][0].ToString() + "</td>";
-                html += "<td>" + dt.Rows[i][5].ToString() + "</td>";
+                html += "<td>" + dt.Rows[i]["tot_death"].ToString() + "</td>";
 
 
                 html += "</tr>";
