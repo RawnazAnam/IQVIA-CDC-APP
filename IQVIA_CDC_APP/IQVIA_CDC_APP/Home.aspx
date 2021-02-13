@@ -11,6 +11,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
   
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
 
 
     <title>CDC COVID-19 Death Count</title>
@@ -92,12 +96,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script>
-    $('#cdcTable').DataTable({
-        
-        ajax: "data.json"
-      
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "processing": true,
+        });
     });
-    table.ajax.url('https://data.cdc.gov/resource/9mfq-cb36.json').load();
 </script>
 </body>
 </html>

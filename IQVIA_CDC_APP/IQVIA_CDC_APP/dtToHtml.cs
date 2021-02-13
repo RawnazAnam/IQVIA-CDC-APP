@@ -11,18 +11,30 @@ namespace IQVIA_CDC_APP
 
         public string ConvertDataTableToHTML(DataTable dt)
         {
-            string html = "<table>";
+            string html = "<table id= \"example\" class=\"table table-striped table - bordered\" style=\"width: 100 % \">";
             //add header row
             html += "<tr>";
             for (int i = 0; i < dt.Columns.Count; i++)
-                html += "<td>" + dt.Columns[i].ColumnName + "</td>";
+            {
+                if(dt.Columns[i].ColumnName.Equals("state")|| dt.Columns[i].ColumnName.Equals("submission_date")|| dt.Columns[i].ColumnName.Equals("tot_death"))
+                {
+
+                    html += "<td>" + dt.Columns[i].ColumnName + "</td>";
+                }
+                
+            }
+                
             html += "</tr>";
             //add rows
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 html += "<tr>";
-                for (int j = 0; j < dt.Columns.Count; j++)
-                    html += "<td>" + dt.Rows[i][j].ToString() + "</td>";
+                
+                    html += "<td>" + dt.Rows[i][1].ToString() + "</td>";
+                html += "<td>" + dt.Rows[i][0].ToString() + "</td>";
+                html += "<td>" + dt.Rows[i][5].ToString() + "</td>";
+
+
                 html += "</tr>";
             }
             html += "</table>";
