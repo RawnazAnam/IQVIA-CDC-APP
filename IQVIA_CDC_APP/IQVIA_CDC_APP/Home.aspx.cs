@@ -12,12 +12,12 @@ namespace IQVIA_CDC_APP
 {
     public partial class Home : System.Web.UI.Page
     {
-        //DataTable temp = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack == false)    // if it's the first page load
 
             {
+                DataTable temp = new DataTable();
 
                 var json = new WebClient().DownloadString("https://data.cdc.gov/resource/9mfq-cb36.json");
 
@@ -39,8 +39,9 @@ namespace IQVIA_CDC_APP
                 cdcData.DataSource = dt;
 
                 cdcData.DataBind();
-                //temp = dt.Copy();
+                temp = dt.Copy();
                 int sum = obj.getSum();
+                temp.Columns.Add("Percentage", typeof(string));
 
                 for (int i = 0; i < cdcData.Rows.Count; i++)
                 {
@@ -49,10 +50,17 @@ namespace IQVIA_CDC_APP
                     double percentage = num * 100.0 / sum ;
                     percentage = Math.Round(percentage, 2);
                     cdcData.Rows[i].Cells[3].Text = percentage + " %";
+                    temp.Rows[i]["Percentage"]= percentage + " %";
                 }
+                
+
+                DataView dv = temp.DefaultView;
+
+                dv.Sort = "tot_death desc";
+                DataTable sortedDT = dv.ToTable();
 
                 dtToHtml test1 = new dtToHtml();
-                string t = test1.ConvertDataTableToHTML(dt);
+                string t = test1.ConvertDataTableToHTML(sortedDT);
                 divDisplay.InnerHtml = t;
 
             }

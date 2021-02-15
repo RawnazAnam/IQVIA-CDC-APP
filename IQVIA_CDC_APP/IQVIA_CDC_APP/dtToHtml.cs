@@ -13,18 +13,19 @@ namespace IQVIA_CDC_APP
         {
             string html = "<table id= \"example\" class=\"table table-striped table - bordered\" style=\"width: 100 % \">";
             //add header row
+            html += "<thead>";
             html += "<tr>";
-            for (int i = 0; i < dt.Columns.Count; i++)
-            {
-                if(dt.Columns[i].ColumnName.Equals("state")|| dt.Columns[i].ColumnName.Equals("submission_date")|| dt.Columns[i].ColumnName.Equals("tot_death"))
-                {
+            html += "<th>" + "State" + "</th>";
+            html += "<th>" + "Submisson Date" + "</th>";
+            html += "<th>" + "Total Deaths" + "</th>";
+            html += "<th>" + "Percentage" + "</th>";
 
-                    html += "<td>" + dt.Columns[i].ColumnName + "</td>";
-                }
-                
-            }
-                
+
             html += "</tr>";
+            html += "</thead>";
+            html += "<tbody>";
+
+
             //add rows
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -33,10 +34,14 @@ namespace IQVIA_CDC_APP
                     html += "<td>" + dt.Rows[i][1].ToString() + "</td>";
                 html += "<td>" + dt.Rows[i][0].ToString() + "</td>";
                 html += "<td>" + dt.Rows[i]["tot_death"].ToString() + "</td>";
+                html += "<td>" + dt.Rows[i]["Percentage"].ToString() + "</td>";
+
 
 
                 html += "</tr>";
             }
+            html += "</tbody>";
+
             html += "</table>";
             return html;
         }

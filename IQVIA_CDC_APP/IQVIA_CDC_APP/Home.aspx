@@ -11,8 +11,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
   
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+  
 
     <title>CDC COVID-19 Death Count</title>
 
@@ -50,7 +54,7 @@
       
     </div>
 
-            <asp:GridView ID="cdcData" runat="server" AutoGenerateColumns="False" CssClass="table table-dark table-hover">
+           <!-- <asp:GridView ID="cdcData" runat="server" AutoGenerateColumns="False" CssClass="table table-dark table-hover">
 
                 <Columns>
 
@@ -66,14 +70,14 @@
 
             </Columns>
 
-            </asp:GridView>
+            </asp:GridView> -->
                         </div>
                     <div class="col">
                         <figure class="text-center">
                         <blockquote class="blockquote">
-                        <p>Please select state from dropdown to see data of specific state</p>
+                        <!--<p>Please select state from dropdown to see data of specific state</p>
                         </br>
-            <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" CssClass="btn btn-secondary btn-lg dropdown-toggle"></asp:DropDownList>
+            <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" CssClass="btn btn-secondary btn-lg dropdown-toggle"></asp:DropDownList>-->
                         </blockquote>
                             <figcaption class="blockquote-footer">
     Please note not all states are available per CDC data
@@ -86,20 +90,15 @@
                     </div>
                 </div>
     </div>
-       
-    </form>
-   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
 
+    </form>
+    <script src="Scripts/DataTables/jquery.dataTables.min.js"></script>
 
 
 <script>
     $(document).ready(function () {
         $('#example').DataTable({
-            "processing": true,
-            "paging": true,
-            "ordering": true,
-            "info": true,
-            'searching': true,
+
         });
     });
 </script>
