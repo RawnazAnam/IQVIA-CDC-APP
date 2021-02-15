@@ -54,13 +54,10 @@ namespace IQVIA_CDC_APP
                 }
                 
 
-                DataView dv = temp.DefaultView;
-
-                dv.Sort = "tot_death desc";
-                DataTable sortedDT = dv.ToTable();
+                
 
                 dtToHtml test1 = new dtToHtml();
-                string t = test1.ConvertDataTableToHTML(sortedDT);
+                string t = test1.ConvertDataTableToHTML(temp);
                 divDisplay.InnerHtml = t;
 
             }
